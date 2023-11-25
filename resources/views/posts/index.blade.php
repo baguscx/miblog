@@ -1,10 +1,26 @@
 @extends('app')
 
-@section('title', 'All Post')
+@section('title')
+
+    @if(request()->search)
+    Search : {{request()->search}}
+    @else
+    All Post
+    @endif
+@endsection
 
 @section('content')
     <div class="container">
-        <h3>All Post </h3> <span>Total : {{$total_post}}</span>
+        @if(!request()->search)
+        <h3>All Post </h3>
+            <span>Total :
+            {{$total_post}}
+        </span>
+        @else
+        <h5>Search : {{request()->search}}</h5>
+        @endif
+
+
         @foreach ($posts as $post)
         <div class="card mb-3">
             <div class="card-body">

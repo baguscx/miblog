@@ -19,11 +19,10 @@
           {{-- <li><a href="#" class="nav-link px-2 link-secondary">Overview</a></li> --}}
           <li><a href="{{url('/')}}" class="nav-link px-2 link-body-emphasis">All Post</a></li>
           <li><a href="#" class="nav-link px-2 link-body-emphasis">Categories</a></li>
-          <li><a href="{{url('/post/new')}}" class="btn btn-success rounded-pill px-3">+Add Post</a></li>
         </ul>
 
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-          <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+        <form method="GET" action={{url('/')}} class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+          <input type="search" name="search" class="form-control" placeholder="Search..." aria-label="Search">
         </form>
 
         <div class="dropdown text-end">
@@ -31,7 +30,7 @@
             <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
           </a>
           <ul class="dropdown-menu text-small">
-            <li><a class="dropdown-item" href="#">New project...</a></li>
+            <li><a class="dropdown-item" href="{{url('/post/new')}}">New post...</a></li>
             <li><a class="dropdown-item" href="#">Settings</a></li>
             <li><a class="dropdown-item" href="#">Profile</a></li>
             <li><hr class="dropdown-divider"></li>
