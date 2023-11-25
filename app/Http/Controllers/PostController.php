@@ -43,7 +43,12 @@ class PostController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $posts = Post::find($id);
+        $view_data = [
+            'posts' => $posts,
+        ];
+        return view('posts.show', $view_data);
+        
     }
 
     /**

@@ -11,7 +11,7 @@
         <h5 class="card-title">{{$post->title}}</h5>
         <p class="card-text">{{$post->content}}</p>
             <p class="card-text"><small class="text-body-secondary">{{$post->updated_at->format('d F Y H:i')}}</small></p>
-            <a href="#" class="btn btn-success">Selengkapnya</a>
+            <a href="{{url("post/$post->id")}}" class="btn btn-success">Selengkapnya</a>
         </div>
     </div>
         @endforeach
