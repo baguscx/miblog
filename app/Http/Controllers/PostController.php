@@ -15,7 +15,7 @@ class PostController extends Controller
     public function index()
     {
         $total_post = Post::count();
-        $posts = Post::paginate(3);
+        $posts = Post::latest()->paginate(3);
         $view_data =[
             'posts' => $posts,
             'total_post' => $total_post,
@@ -27,7 +27,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**
@@ -35,7 +35,16 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $title = $request->input('title');
+        $content = $request->input('content');
+
+        Post::create([
+            'title' => $title,
+            'content' => $content
+        ]);
+
+        return redirect('/');
     }
 
     /**
@@ -56,7 +65,11 @@ class PostController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $posts = Post::find($id);
+        $view_data = [
+            'posts' => $posts,
+        ];
+        return view('posts.edit', $view_data);
     }
 
     /**
@@ -64,7 +77,11 @@ class PostController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $posts = Post::find($id);
+            $posts->title = $request->input('title');
+            $posts->content = $request->input('content');
+        $posts->save();
+        return redirect('/');
     }
 
     /**
@@ -72,6 +89,7 @@ class PostController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Post::destroy($id);
+        return redirect('/');
     }
 }

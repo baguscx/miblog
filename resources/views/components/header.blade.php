@@ -19,7 +19,7 @@
           {{-- <li><a href="#" class="nav-link px-2 link-secondary">Overview</a></li> --}}
           <li><a href="{{url('/')}}" class="nav-link px-2 link-body-emphasis">All Post</a></li>
           <li><a href="#" class="nav-link px-2 link-body-emphasis">Categories</a></li>
-          <li><a href="#" class="nav-link px-2 link-body-emphasis">Products</a></li>
+          <li><a href="{{url('/post/new')}}" class="btn btn-success rounded-pill px-3">+Add Post</a></li>
         </ul>
 
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
